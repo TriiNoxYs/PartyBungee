@@ -83,4 +83,6 @@
   </dependencies>
   
   
+    <url>https://github.com/TriiNoxYs/PartyBungee</url>
+    <description>A BungeeCord plugin to allow players creating parties (group) to play games together, etc.</description>
 </project>
