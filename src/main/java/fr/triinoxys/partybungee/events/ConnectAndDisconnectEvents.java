@@ -1,5 +1,6 @@
 package fr.triinoxys.partybungee.events;
 
+import java.io.IOException;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.event.PlayerDisconnectEvent;
 import net.md_5.bungee.api.event.PostLoginEvent;
@@ -19,6 +20,12 @@ public class ConnectAndDisconnectEvents implements Listener{
     
     @EventHandler
     public void onPlayerJoinProxy(PostLoginEvent e){
+      try{
+          Main.updater.checkUpdate(true);
+      }catch(IOException e1){
+          e1.printStackTrace();
+      }
+        
         ProxiedPlayer player = e.getPlayer();
         
         for(Team parties : sb.getTeams()){

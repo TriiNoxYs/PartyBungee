@@ -15,6 +15,7 @@ import net.md_5.bungee.config.YamlConfiguration;
 import com.google.common.io.ByteStreams;
 import fr.triinoxys.partybungee.commands.PartyCmd;
 import fr.triinoxys.partybungee.events.ConnectAndDisconnectEvents;
+import fr.triinoxys.partybungee.utils.UpdaterV2;
 
 
 public class Main extends Plugin{
@@ -25,15 +26,31 @@ public class Main extends Plugin{
     public Team admins;
     
     public static ProxyServer proxy;
+    public static UpdaterV2 updater;
 	
     @Override
 	public void onEnable(){
 		proxy = this.getProxy();
 		
+		
+		//Commands
 		proxy.getPluginManager().registerCommand(this, new PartyCmd());
 		
+		
+		//Events
 		proxy.getPluginManager().registerListener(this, new ConnectAndDisconnectEvents());
 		
+		
+		//Updater
+		try{
+		    updater = new UpdaterV2(this);
+		    updater.checkUpdate(true);
+        }catch(IOException e1){
+            e1.printStackTrace();
+        }
+		
+		
+		//Config
 		if (!getDataFolder().exists()){
             getDataFolder().mkdir();
         }

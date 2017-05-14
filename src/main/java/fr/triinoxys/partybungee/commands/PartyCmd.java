@@ -16,10 +16,10 @@ public class PartyCmd extends Command{
     public static Scoreboard sb;
     
     private final BaseComponent[] ERROR_USAGE = new ComponentBuilder("Usage: /party <create | invite | kick | tp | tpall>").color(ChatColor.RED).create();
-    private final BaseComponent[] ERROR_NO_PARTY = new ComponentBuilder("Vous n'êtes dans aucune party !").color(ChatColor.RED).create();
-    private final BaseComponent[] ERROR_YOU_ARE_LEADER = new ComponentBuilder("Vous êtes le leader de la party !").color(ChatColor.RED).create();
-    private final BaseComponent[] ERROR_YOU_ARE_NOT_LEADER = new ComponentBuilder("Vous n'êtes pas le leader de la party !").color(ChatColor.RED).create();
-    private final BaseComponent[] ERROR_YOU_ALREADY_PARTY = new ComponentBuilder("Vous êtes déjà dans une party !").color(ChatColor.RED).create();
+    private final BaseComponent[] ERROR_NO_PARTY = new ComponentBuilder("Vous n'Â§tes dans aucune party !").color(ChatColor.RED).create();
+    private final BaseComponent[] ERROR_YOU_ARE_LEADER = new ComponentBuilder("Vous Â§tes le leader de la party !").color(ChatColor.RED).create();
+    private final BaseComponent[] ERROR_YOU_ARE_NOT_LEADER = new ComponentBuilder("Vous n'Â§tes pas le leader de la party !").color(ChatColor.RED).create();
+    private final BaseComponent[] ERROR_YOU_ALREADY_PARTY = new ComponentBuilder("Vous Â§tes dÂ§jÂ§ dans une party !").color(ChatColor.RED).create();
 
     public PartyCmd(){
         super("party", null, "p");
@@ -51,7 +51,7 @@ public class PartyCmd extends Command{
                     party.addPlayer(player.getName());
                     player.setDisplayName(party.getName());
                     
-                    player.sendMessage(new ComponentBuilder("Vous avez créé la party " + party.getName() + ".").color(ChatColor.GOLD).create());
+                    player.sendMessage(new ComponentBuilder("Vous avez crÂ§Â§ la party " + party.getName() + ".").color(ChatColor.GOLD).create());
 
                     //TODO: DEBUG
                     System.out.println("DEBUG: PARTY_CREATE TEAMS: " + sb.getTeams().toString());
@@ -69,7 +69,7 @@ public class PartyCmd extends Command{
                                     
                                     for(Team parties : sb.getTeams()){
                                         if(parties.getPlayers().contains(target.getName())){
-                                            player.sendMessage(new ComponentBuilder(target.getName() + " est déjà dans une party !").color(ChatColor.RED).create());
+                                            player.sendMessage(new ComponentBuilder(target.getName() + " est dÂ§jÂ§ dans une party !").color(ChatColor.RED).create());
                                             
                                             //TODO: DEBUG
                                             System.out.println("DEBUG: PARTY_INVITE TEAMS: " + sb.getTeams().toString());
@@ -81,13 +81,13 @@ public class PartyCmd extends Command{
                                     party.addPlayer(target.getName());
                                     target.setDisplayName(party.getName());
                                     
-                                    player.sendMessage(new ComponentBuilder("Vous avez ajouté " + target.getName() + " à votre party.").color(ChatColor.GOLD).create());
-                                    target.sendMessage(new ComponentBuilder("Vous avez été ajouté à la party " + party.getName() + ".").color(ChatColor.GOLD).create());
+                                    player.sendMessage(new ComponentBuilder("Vous avez ajoutÂ§ " + target.getName() + " Â§ votre party.").color(ChatColor.GOLD).create());
+                                    target.sendMessage(new ComponentBuilder("Vous avez Â§tÂ§ ajoutÂ§ Â§ la party " + party.getName() + ".").color(ChatColor.GOLD).create());
                                         
                                     //TODO: DEBUG
                                     System.out.println("DEBUG: PARTY_INVITE TEAMS: " + sb.getTeams().toString());
                                 }
-                                else player.sendMessage(new ComponentBuilder(args[1] + " n'est pas conncté.").color(ChatColor.RED).create());
+                                else player.sendMessage(new ComponentBuilder(args[1] + " n'est pas connctÂ§.").color(ChatColor.RED).create());
                             }
                             else player.sendMessage(new ComponentBuilder("Usage: /party add <joueur>").color(ChatColor.RED).create());
                         }
@@ -102,12 +102,12 @@ public class PartyCmd extends Command{
                                     target.setDisplayName(target.getName());
                                     
                                     player.sendMessage(new ComponentBuilder("Vous avez exclu " + target.getName() + " de votre party.").color(ChatColor.GOLD).create());
-                                    target.sendMessage(new ComponentBuilder("Vous avez été exclu de la party " + party.getName() + ".").color(ChatColor.GOLD).create());
+                                    target.sendMessage(new ComponentBuilder("Vous avez Â§tÂ§ exclu de la party " + party.getName() + ".").color(ChatColor.GOLD).create());
                                     
                                     //TODO: DEBUG
                                     System.out.println("DEBUG: TEAMS: " + sb.getTeams().toString());
                                 }
-                                else player.sendMessage(new ComponentBuilder(args[1] + " n'est pas conncté.").color(ChatColor.RED).create());
+                                else player.sendMessage(new ComponentBuilder(args[1] + " n'est pas connctÂ§.").color(ChatColor.RED).create());
                             }
                             else player.sendMessage(new ComponentBuilder("Usage: /party remove <joueur>").color(ChatColor.RED).create());
                         }
@@ -120,10 +120,10 @@ public class PartyCmd extends Command{
                                    party.removePlayer(player.getName());
                                    player.setDisplayName(player.getName());
                                    
-                                   player.sendMessage(new ComponentBuilder("Vous avez quitté la party.").color(ChatColor.GREEN).create());
+                                   player.sendMessage(new ComponentBuilder("Vous avez quittÂ§ la party.").color(ChatColor.GREEN).create());
                                    for(String name : party.getPlayers()){
                                        ProxiedPlayer member = Main.proxy.getPlayer(name);
-                                       if(member != player) member.sendMessage(new ComponentBuilder(player.getName() + " a quitté la party.").color(ChatColor.GREEN).create());
+                                       if(member != player) member.sendMessage(new ComponentBuilder(player.getName() + " a quittÂ§ la party.").color(ChatColor.GREEN).create());
                                    }
                                 }
                                 else player.sendMessage(ERROR_YOU_ARE_LEADER);
@@ -167,7 +167,7 @@ public class PartyCmd extends Command{
                                     if(member != leader) member.connect(leader.getServer().getInfo());
                                 }
                             }
-                            else player.sendMessage(new ComponentBuilder("Vous devez être le leader de la party !").color(ChatColor.RED).create());
+                            else player.sendMessage(new ComponentBuilder("Vous devez Â§tre le leader de la party !").color(ChatColor.RED).create());
                         }
                         else player.sendMessage(ERROR_USAGE);
                     }
