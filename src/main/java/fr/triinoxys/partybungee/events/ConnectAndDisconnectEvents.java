@@ -27,7 +27,7 @@ public class ConnectAndDisconnectEvents implements Listener{
             }
         }
         
-      //TODO: DEBUG
+        //TODO: DEBUG
         System.out.println("DEBUG: PLAYER_JOIN TEAMS: " + sb.getTeams().toString());
     }
     
@@ -61,10 +61,10 @@ public class ConnectAndDisconnectEvents implements Listener{
 //        party.removePlayer(player.getName());
 //        player.setDisplayName(player.getName());
 //        
-//        player.sendMessage(new ComponentBuilder("Vous avez quitté la party.").color(ChatColor.GREEN).create());
+//        player.sendMessage(new ComponentBuilder("Vous avez quittï¿½ la party.").color(ChatColor.GREEN).create());
 //        for(String name : party.getPlayers()){
 //            ProxiedPlayer member = Main.proxy.getPlayer(name);
-//            if(member != player) member.sendMessage(new ComponentBuilder(player.getName() + " a quitté la party.").color(ChatColor.GREEN).create());
+//            if(member != player) member.sendMessage(new ComponentBuilder(player.getName() + " a quittï¿½ la party.").color(ChatColor.GREEN).create());
 //        }
         
         if(party.getPlayers().size() == 0){
